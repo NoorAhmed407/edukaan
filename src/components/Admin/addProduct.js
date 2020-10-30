@@ -13,17 +13,14 @@ export class AddProduct extends Component {
     handleName = (e) =>{
         this.setState({
             productName: e.target.value,
-            // productImage: e.target.files[0]
         });
-
-        // setTimeout(()=>console.log(this.state),1000);
     }
 
     
     handlePrice = (e) =>{
         this.setState({
             productPrice: e.target.value
-        })
+        });
     }
     
     handleType =(e) => {
