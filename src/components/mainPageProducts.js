@@ -16,12 +16,19 @@ export class MainPageProducts extends Component {
             <div className="container text-center my-5">
                     <h1>Our Products</h1>
                     <div className="row mt-5">
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
-                            <ProductCard />
+                           {
+                               this.props.productsData.map((cardData, ind)=>{
+                                   return(
+                                   <ProductCard
+                                   key={ind}
+                                   proImg = {`http://localhost:4000/${cardData.pimage}`}
+                                   proType = {cardData.ptype}
+                                   proName = {cardData.pname}
+                                   proPrice={cardData.pprice}
+                                   />
+                                   );
+                               })
+                           }
                     </div>
             </div>
         )
