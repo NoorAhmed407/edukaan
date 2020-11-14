@@ -16,7 +16,7 @@ export class ProductCard extends Component {
                     <img class="card-img-top" 
                     style={style.imgStyle}
                     src={this.props.proImg} 
-                    alt="Card image cap" />
+                    alt="Card cap" />
                     
                     <div className="card-body">
                         <h5 className="card-title">

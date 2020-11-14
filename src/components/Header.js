@@ -7,7 +7,7 @@ function Navbar() {
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
                 <div className="container">
-                    <a  className="navbar-brand" href="/">E-Dukaan</a>
+                    <Link  className="navbar-brand" to="/">E-Dukaan</Link>
                     <button 
                     className="navbar-toggler"
                     type="button" data-toggle="collapse" 
@@ -20,18 +20,18 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-link">
-                                 <a href="" className="nav-link">Home</a>  
+                                 <Link  to="/" className="nav-link">Home</Link>  
                             </li>
                             <li className="nav-link">
-                                 <a className="nav-link" href="">Men's Collection</a>  
+                                 <Link className="nav-link" to="menproducts">Men's Collection</Link>  
                             </li>
                             <li className="nav-link">
-                                <a href="" className="nav-link">Women's Collection</a>  
+                                <Link to="/womenproducts" className="nav-link">Women's Collection</Link>  
                             </li>
                             <li className="nav-link">
-                                <a href="" className="nav-link">
+                                <Link to="/" className="nav-link">
                                     Cart <i className="fa fa-cart-plus fa-1x"></i>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

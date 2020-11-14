@@ -3,7 +3,6 @@ const iState = {
     newProduct: [],
     loading: false,
     cartProduct: [],
-    newProduct: []
 }
 
 const productReducer = (state=iState, action)=>{
