@@ -23,6 +23,7 @@ mongoose.Promise = global.Promise;
 
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
+
 //Initializing Routes
 app.use('/api/products',require('./routes/productsAPI'));
 

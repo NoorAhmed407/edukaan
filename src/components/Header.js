@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
-function Navbar() {
+function Navbar(props) {
+
+    const [cartDataLenght, setCartDataLenght] = useState(props.cartData.lenght);
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -29,8 +31,14 @@ function Navbar() {
                                 <Link to="/womenproducts" className="nav-link">Women's Collection</Link>  
                             </li>
                             <li className="nav-link">
-                                <Link to="/" className="nav-link">
-                                    Cart <i className="fa fa-cart-plus fa-1x"></i>
+                                <Link to="/cart" className="nav-link">                               
+                                    Cart
+                                    <span className="badge badge-warning m-2">
+                                        {cartDataLenght}
+                                    </span>
+
+                                    <i className="fa fa-cart-plus fa-1x"></i>
+                                   
                                 </Link>
                             </li>
                         </ul>
@@ -44,7 +52,7 @@ function Navbar() {
 
 const mapStateToProps = state => {
     return{
-
+        cartData: state.product.cartProduct
     }
 };
 

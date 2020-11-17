@@ -7,12 +7,7 @@ const iState = {
 
 const productReducer = (state=iState, action)=>{
 
-    // if(action.type === "ADD_PRODUCTS"){
-    //     return{
-    //         ...state,
-    //         newProduct: action.payload
-    //     }
-    // }
+ 
 
     if(action.type === "FETCH_PRODUCTS"){
         return{
@@ -20,6 +15,24 @@ const productReducer = (state=iState, action)=>{
             products: action.payload
         }
     }
+
+    if(action.type === "ADD_PRODUCT_TO_CART"){
+        return{
+            ...state,
+            cartProduct:
+            [
+                ...state.cartProduct,
+                {
+                    productName: action.payload.pname,
+                    productPrice: action.payload.pprice,
+                    productImage: action.payload.pimage
+                }
+            ]
+
+        }
+    }
+
+
     return state;
 }
 

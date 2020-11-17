@@ -5,16 +5,9 @@ import Carousel from './components/carousal';
 import AddProduct from './components/Admin/addProduct';
 import MenProduct from './components/menProduct';
 import WomenProduct from './components/womenProduct';
+import Cart from './components/cart';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-// const Home = props =>{
-//   return(
-//     <div>
-      
-      
-//     </div>
-//   );
-// }
 
 
 function App() {
@@ -28,6 +21,7 @@ function App() {
           <Route path="/addProducts" component={AddProduct} />
           <Route path="/menproducts" component={MenProduct} />
           <Route path="/womenproducts" component={WomenProduct} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </BrowserRouter>
     </div>

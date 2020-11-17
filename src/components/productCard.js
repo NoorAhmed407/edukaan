@@ -33,7 +33,9 @@ export class ProductCard extends Component {
 
                     </div>
                     <div class="card-footer">
-                        <button className="btn btn-block btn-primary">
+                        <button 
+                        onClick={this.props.clickbtn}
+                        className="btn btn-block btn-primary">
                             Add To Cart
                         </button>
                     </div>
