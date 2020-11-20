@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProductCard from './productCard';
 import fetchProducts from './../REDUX/Actions/fetchProducts';
+import fetchProduct from './../REDUX/Actions/fetchProduct';
 
 export class WomenProduct extends Component {
 
@@ -9,6 +10,13 @@ export class WomenProduct extends Component {
         this.props.updateProducts();
     }
 
+
+    handleClick = (e,proID) =>{
+        e.preventDefault();
+        console.log(proID);
+        this.props.getSingleProduct(proID);
+
+    }
 
     render() {
         return (
@@ -25,6 +33,7 @@ export class WomenProduct extends Component {
                                    proType = {cardData.ptype}
                                    proName = {cardData.pname}
                                    proPrice={cardData.pprice}
+                                   clickbtn = {(event)=> this.handleClick(event,cardData._id)}
                                    />
                             );
                         })
@@ -43,7 +52,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return{
-        updateProducts: () => {dispatch(fetchProducts())}
+        updateProducts: () => {dispatch(fetchProducts())},
+        getSingleProduct: (data)=> {dispatch(fetchProduct(data))}
     }
 }
 

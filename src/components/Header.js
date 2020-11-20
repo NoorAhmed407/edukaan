@@ -1,10 +1,33 @@
-import React, { useState }  from 'react';
+import React, { Component }  from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
-function Navbar(props) {
+class Navbar extends Component {
 
-    const [cartDataLenght, setCartDataLenght] = useState(props.cartData.lenght);
+    
+    state = {
+        cartDetails: []
+    }
+
+    componentDidMount = () =>{
+        console.log("componentDidMount - this.props: ", this.props);
+        this.setState({
+            cartDetails: this.props.cartData
+        });
+
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log("componentDidUpdate - this.props: ", this.props);
+        if(prevProps.cartData !== this.props.cartData) {
+            this.setState({
+                cartDetails: this.props.cartData
+            });    
+        }
+    }
+
+    render(){
+        console.log(this.state);
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -34,11 +57,9 @@ function Navbar(props) {
                                 <Link to="/cart" className="nav-link">                               
                                     Cart
                                     <span className="badge badge-warning m-2">
-                                        {cartDataLenght}
+                                        {this.state.cartDetails.length}
                                     </span>
-
                                     <i className="fa fa-cart-plus fa-1x"></i>
-                                   
                                 </Link>
                             </li>
                         </ul>
@@ -47,6 +68,8 @@ function Navbar(props) {
             </nav>
         </div>
     )
+    }
+   
 }
 
 
