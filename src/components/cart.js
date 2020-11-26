@@ -5,7 +5,7 @@ import CartCard from './cartData';
 export class Cart extends Component {
 
     state = {
-        selectedItems: []
+        selectedItems: [],
     }
 
     componentDidMount = () =>{
@@ -25,6 +25,7 @@ export class Cart extends Component {
                             key = {ind}
                             itemName = {item.productName}
                             itemImage = {`http://localhost:4000/${item.productImage}`}
+                            itemPrice = {item.productPrice}
                         /> )
                         
                     }) : <h5>No Item In your Cart</h5>
