@@ -17,7 +17,7 @@ class Navbar extends Component {
 
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate = (prevProps, prevState) => {
         console.log("componentDidUpdate - this.props: ", this.props);
         if(prevProps.cartData !== this.props.cartData) {
             this.setState({

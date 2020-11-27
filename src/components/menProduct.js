@@ -12,8 +12,17 @@ export class MenProduct extends Component {
 
     handleClick = (e,proID) =>{
         e.preventDefault();
-        console.log(proID);
-        this.props.getSingleProduct(proID);
+        const cartData  = this.props.cartData;
+        console.log(cartData);
+        let bool = true;
+        for (var i=0; i < cartData.length; i++) {
+            if (cartData[i].productID === proID) {
+                alert('This Product is already in Cart');
+                bool = false;
+            }
+        }
+
+        return bool ? this.props.getSingleProduct(proID) : bool;
 
     }
 
@@ -46,7 +55,8 @@ export class MenProduct extends Component {
 
 const mapStateToProps = (state) => {
     return{
-        productData: state.product.products
+        productData: state.product.products,
+        cartData: state.product.cartProduct
     }
 }
 
