@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProductCard from './productCard';
-import fetchProducts from './../REDUX/Actions/fetchProducts'
-import fetchProduct from './../REDUX/Actions/fetchProduct'
+import fetchProducts from './../REDUX/Actions/fetchProducts';
+import fetchProduct from './../REDUX/Actions/fetchProduct';
 import { connect } from 'react-redux';
 
 export class MainPageProducts extends Component {
@@ -9,9 +9,8 @@ export class MainPageProducts extends Component {
 
     state = {
         cartArray: [],
-        productFound: false
     }
-
+    
     componentDidMount = () => {
         this.props.updateProducts();
     }
@@ -21,14 +20,16 @@ export class MainPageProducts extends Component {
         e.preventDefault();
         const cartData  = this.props.cartData;
         console.log(cartData);
+        let bool = true;
         for (var i=0; i < cartData.length; i++) {
             if (cartData[i].productID === proID) {
                 alert('This Product is already in Cart');
-                this.setState({productFound: true});
+                bool = false;
             }
         }
-        
-        return !this.state.productFound ? this.props.getSingleProduct(proID) : false;
+
+        return bool ? this.props.getSingleProduct(proID) : bool;
+
     }
 
 
