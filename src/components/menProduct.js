@@ -56,7 +56,7 @@ export class MenProduct extends Component {
 const mapStateToProps = (state) => {
     return{
         productData: state.product.products,
-        cartData: state.product.cartProduct
+        cartData: state.product.cartProduct 
     }
 }
 
