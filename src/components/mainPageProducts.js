@@ -6,6 +6,12 @@ import { connect } from 'react-redux';
 
 export class MainPageProducts extends Component {
 
+
+    state = {
+        cartArray: [],
+        productFound: false
+    }
+
     componentDidMount = () => {
         this.props.updateProducts();
     }
@@ -13,9 +19,16 @@ export class MainPageProducts extends Component {
 
     handleClick = (e,proID) =>{
         e.preventDefault();
-        console.log(proID);
-        this.props.getSingleProduct(proID);
-
+        const cartData  = this.props.cartData;
+        console.log(cartData);
+        for (var i=0; i < cartData.length; i++) {
+            if (cartData[i].productID === proID) {
+                alert('This Product is already in Cart');
+                this.setState({productFound: true});
+            }
+        }
+        
+        return !this.state.productFound ? this.props.getSingleProduct(proID) : false;
     }
 
 
@@ -48,7 +61,8 @@ export class MainPageProducts extends Component {
 
 const mapStateToProps = state =>{
     return {
-        productsData: state.product.products
+        productsData: state.product.products,
+        cartData: state.product.cartProduct
     }
 }
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export class CartCard extends Component {
 
     state = {
-        productQuantity: 1
+        productQuantity: 1,
     }
 
 
@@ -11,18 +11,17 @@ export class CartCard extends Component {
     decreaseProduct = (e) => {
         
         e.preventDefault();
-        const {productQuantity} = this.state;
-
-        if( productQuantity <=  0 ){
-            this.setState({productQuantity: 0});
-        }
-    
         this.setState(
             {
                 productQuantity: this.state.productQuantity-1
             }
         );
         
+
+        if( this.state.productQuantity <=  0 ){
+            this.setState({productQuantity: 0});
+        }
+    
         
 
     }
@@ -37,10 +36,6 @@ export class CartCard extends Component {
         );
     }
 
-
-    // btnDisabled = () =>{
-    //     return this.state.productQuantity>=1 ? null : 'disabled';
-    // }
 
 
     render() {
@@ -69,7 +64,7 @@ export class CartCard extends Component {
                                 onClick={this.increaseProduct}
                                 className="btn btn-primary">+</button>
                                 <span 
-                                className="q">Quantity: {this.state.productQuantity}</span>
+                                className="float-right">Quantity: {this.state.productQuantity}</span>
                             </div>
                         </div>
                     </div>

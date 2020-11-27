@@ -23,6 +23,7 @@ const productReducer = (state=iState, action)=>{
             [
                 ...state.cartProduct,
                 {
+                    productID: action.payload._id,
                     productName: action.payload.pname,
                     productPrice: action.payload.pprice,
                     productImage: action.payload.pimage
