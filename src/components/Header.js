@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Navbar extends Component {
-
     
     state = {
         cartDetails: []

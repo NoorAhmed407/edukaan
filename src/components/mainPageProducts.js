@@ -66,11 +66,13 @@ const mapStateToProps = state =>{
     }
 }
 
+
 const mapDispatchToProps = dispatch =>{
     return {
         updateProducts: () => {dispatch(fetchProducts())},
         getSingleProduct: (data)=> {dispatch(fetchProduct(data))}
     }
 }
+
 
 export default connect(mapStateToProps,mapDispatchToProps) (MainPageProducts);

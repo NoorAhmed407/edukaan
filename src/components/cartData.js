@@ -55,6 +55,10 @@ export class CartCard extends Component {
                         </div>
                         <div className="card-footer text-muted">
                             <div className="btn-group" role="group" aria-label="Basic example">
+                                <h5
+                                className=" m-2 float-right">Quantity: {this.state.productQuantity}
+                                </h5>
+                               
                                 <button 
                                 type="button" 
                                 onClick={this.decreaseProduct}
@@ -63,8 +67,11 @@ export class CartCard extends Component {
                                 type="button"
                                 onClick={this.increaseProduct}
                                 className="btn btn-primary">+</button>
-                                <span 
-                                className="float-right">Quantity: {this.state.productQuantity}</span>
+                                <button 
+                                type="button"
+                                onClick={this.props.deleteproduct}
+                                className="btn btn-warning">Delete</button>
+                               
                             </div>
                         </div>
                     </div>

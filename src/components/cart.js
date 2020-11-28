@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CartCard from './cartData';
+import removeProductFromCart from './../REDUX/Actions/removeProductFromCart'
 
 export class Cart extends Component {
 
@@ -22,11 +23,28 @@ export class Cart extends Component {
         this.setState({totalAmmount: total});
     }
 
+    componentDidUpdate = (prevProps,prevState)=>{
+
+        if(prevProps.cartData !== this.props.cartData){
+             this.setState({
+                selectedItems: this.props.cartData
+            });
+        }
+
+        
+        
+    }
+
+    onDelete = (e,proID) => {
+        e.preventDefault();
+        this.props.removeProductFromCart(proID);
+    }
+
     render() {
         console.log(this.state);
         return (
             <React.Fragment>
-                            <h1 className='my-5 text-center'>Shopping Cart</h1>
+                <h1 className='my-5 text-center'>Shopping Cart</h1>
                 <div className="row">
                     <div className="col-md-6">
                             <div className="col-md-12 text-center">
@@ -37,6 +55,7 @@ export class Cart extends Component {
                                         itemName = {item.productName}
                                         itemImage = {`http://localhost:4000/${item.productImage}`}
                                         itemPrice = {item.productPrice}
+                                        deleteproduct = {(event)=>this.onDelete(event,item.productID)}
                                     /> 
                                     )
                                     
@@ -66,6 +85,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
+
+    return {
+        removeProductFromCart: data=>{dispatch(removeProductFromCart(data))}
+    }
     
 }
 
