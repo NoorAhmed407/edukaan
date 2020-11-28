@@ -51,7 +51,7 @@ export class CartCard extends Component {
                              alt='default'
                              style={{height:"200px", width: "200px"}}
                            />
-                           <h4 className="text-center mt-2">{this.props.itemPrice}</h4>
+                           <h4 className="text-center mt-2">Rs {this.props.itemPrice}</h4>
                         </div>
                         <div className="card-footer text-muted">
                             <div className="btn-group" role="group" aria-label="Basic example">

@@ -29,7 +29,6 @@ export class MainPageProducts extends Component {
         }
 
         return bool ? this.props.getSingleProduct(proID) : bool;
-
     }
 
 
