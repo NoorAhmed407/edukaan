@@ -26,8 +26,16 @@ export class Cart extends Component {
     componentDidUpdate = (prevProps,prevState)=>{
 
         if(prevProps.cartData !== this.props.cartData){
-             this.setState({
-                selectedItems: this.props.cartData
+           
+            let total= 0;
+
+            for (var i = 0; i < this.props.cartData.length; i++){
+                total = total + this.props.cartData[i].productPrice;
+            }
+            console.log(total);
+            this.setState({
+                selectedItems: this.props.cartData,
+                totalAmmount: total
             });
         }
 
