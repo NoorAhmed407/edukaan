@@ -10,36 +10,39 @@ export class Cart extends Component {
         totalAmmount: 0
     }
 
+   
+    totalPrice = () => {
+        let total= 0;
+
+            for (var i = 0; i < this.props.cartData.length; i++){
+                total = total + this.props.cartData[i].productPrice;
+            }
+            this.setState({
+                totalAmmount: total
+            });
+    }
+
+
     componentDidMount = () =>{
         this.setState({
             selectedItems: this.props.cartData
         });
         
-        let total=0;
-        for (var i = 0; i < this.props.cartData.length; i++){
-            total = total + this.props.cartData[i].productPrice;
-        } 
-        console.log(total);
-        this.setState({totalAmmount: total});
+       this.totalPrice();
     }
+
+
 
     componentDidUpdate = (prevProps,prevState)=>{
 
         if(prevProps.cartData !== this.props.cartData){
-           
-            let total= 0;
-
-            for (var i = 0; i < this.props.cartData.length; i++){
-                total = total + this.props.cartData[i].productPrice;
-            }
-            console.log(total);
+            
+            this.totalPrice();
+          
             this.setState({
                 selectedItems: this.props.cartData,
-                totalAmmount: total
             });
         }
-
-        
         
     }
 
@@ -47,6 +50,7 @@ export class Cart extends Component {
         e.preventDefault();
         this.props.removeProductFromCart(proID);
     }
+    
 
     render() {
         console.log(this.state);
