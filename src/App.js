@@ -9,19 +9,61 @@ import Cart from './components/cart';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
+const Home = props =>{
+  return(
+    <div>
+      <Navbar />
+      <Carousel />
+      <MainPageProducts />
+    </div>
+  );
+}
+
+
+const Men = props => {
+  return (
+    <div>
+        <Navbar />
+        <Carousel />
+        <MenProduct />
+    </div>
+  );
+}
+
+
+
+const Women = props => {
+  return (
+    <div>
+        <Navbar />
+        <Carousel />
+        <WomenProduct />
+    </div>
+  );
+}
+
+
+const CartFinal = props=>{
+  return(
+    <div>
+      <Navbar />
+      <Cart />
+    </div>
+  );
+}
+
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
-        <Carousel />
         <Switch>
-          <Route path="/" exact component={MainPageProducts} />
+          <Route path="/" exact component={Home} />
           <Route path="/addProducts" component={AddProduct} />
-          <Route path="/menproducts" component={MenProduct} />
-          <Route path="/womenproducts" component={WomenProduct} />
-          <Route path="/cart" component={Cart} />
+          <Route path="/menproducts" component={Men} />
+          <Route path="/womenproducts" component={Women} />
+          <Route path="/cart" component={CartFinal} />
         </Switch>
       </BrowserRouter>
     </div>

@@ -29,7 +29,7 @@ class Navbar extends Component {
         console.log(this.state);
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <Link  className="navbar-brand" to="/">E-Dukaan</Link>
                     <button 

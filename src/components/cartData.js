@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import updatePriceDecrease from '../REDUX/Actions/updatePriceDecrease';
+import updatePriceIncreas from '../REDUX/Actions/updatePriceIncrease';
 
 export class CartCard extends Component {
 
@@ -8,36 +11,9 @@ export class CartCard extends Component {
 
 
 
-    decreaseProduct = (e) => {
         
-        e.preventDefault();
-        this.setState(
-            {
-                productQuantity: this.state.productQuantity-1
-            }
-        );
         
-
-        if( this.state.productQuantity <=  0 ){
-            this.setState({productQuantity: 0});
-        }
-    
         
-
-    }
-
-
-    increaseProduct = (e) => {
-        e.preventDefault();
-        this.setState(
-            {
-                productQuantity: this.state.productQuantity+1
-            }
-        );
-    }
-
-
-
     render() {
         return (
             <div className="container my-5">
@@ -71,7 +47,6 @@ export class CartCard extends Component {
                                 type="button"
                                 onClick={this.props.deleteproduct}
                                 className="btn btn-warning">Delete</button>
-                               
                             </div>
                         </div>
                     </div>
@@ -80,4 +55,15 @@ export class CartCard extends Component {
     }
 }
 
-export default CartCard;
+
+
+const mapDispatchToProps = dispatch =>{
+    return{
+        handleIncrease: ()=>{dispatch(updatePriceIncreas())},
+        handleDecrease: ()=>{dispatch(updatePriceDecrease())}
+    }
+}
+
+
+
+export default connect(null,mapDispatchToProps)(CartCard);

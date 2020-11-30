@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CartCard from './cartData';
-import removeProductFromCart from './../REDUX/Actions/removeProductFromCart'
+import removeProductFromCart from './../REDUX/Actions/removeProductFromCart';
+
 
 export class Cart extends Component {
 
@@ -9,7 +10,6 @@ export class Cart extends Component {
         selectedItems: [],
         totalAmmount: 0
     }
-
    
     totalPrice = () => {
         let total= 0;
@@ -50,7 +50,7 @@ export class Cart extends Component {
         e.preventDefault();
         this.props.removeProductFromCart(proID);
     }
-    
+
 
     render() {
         console.log(this.state);

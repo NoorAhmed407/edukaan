@@ -15,6 +15,8 @@ const productReducer = (state=iState, action)=>{
         }
     }
 
+
+
     if(action.type === 'PRODUCT_REMOVED_FROM_CART'){
         let target = state.cartProduct;
         console.log(action.payload);
@@ -37,6 +39,7 @@ const productReducer = (state=iState, action)=>{
             [
                 ...state.cartProduct,
                 {
+                    productQuantity: 1,
                     productID: action.payload._id,
                     productName: action.payload.pname,
                     productPrice: action.payload.pprice,
